@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Roboto:wght@500&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  * {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .container-fluid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin-top: 1rem;
+    /* width: 100vw; */
   }
-  to {
-    transform: rotate(360deg);
+
+  .heading {
+    font-weight: 600;
+    text-align: center;
+    padding: 1rem;
+    background-color: #444444;
+    color: white;
+    width: 50%;
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
   }
-}
+
+  .top {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .input-wrapper {
+    width: 49vw;
+    display: flex;
+  }
+
+  .tasks-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tasks-wrapper>div {
+    width: 50%;
+    padding: 1rem;
+    background-color: #F4F6F6;
+    border-radius: 1rem;
+
+  }
+
+  .tasks-wrapper>div>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: .5rem; */
+    border-radius: 1rem;
+    /* border: 1px solid grey; */
+
+  }
+
+
+  i {
+    font-size: 1.5rem;
+  }
+
+  .fa-trash-can {
+    color: red;
+  }
+
+  .fa-pen-to-square {
+    color: green;
+  }
+
+  .button-wrapper {
+    position: relative;
+    top: 10px;
+    left: 45%;
+  }
+
+  @media screen and (max-width: 680px) {
+    body {
+      background-color: lightgreen;
+    }
+
+    .heading {
+      width: 100%;
+    }
+
+    .tasks-wrapper>div {
+      width: 100%;
+
+    }
+    .input-wrapper {
+      width: 95vw;
+    }
+  }
