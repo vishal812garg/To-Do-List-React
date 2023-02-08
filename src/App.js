@@ -13,7 +13,7 @@ function App() {
   let addTask = () => {
 
     if (task.length === 0) {
-      alert("enter some")
+      alert("enter some task")
     } else if (task && !updateBtn) {
       setShow(
         show.map((e) => {
@@ -52,12 +52,14 @@ function App() {
     const newEditItem = show.find((value) => {
       return value.id === id
     })
-    console.log(newEditItem)
+    // console.log(newEditItem)
     setUpdateBtn(false);
     setTask(newEditItem.name)
     setIsEdit(id);
   }
-  // for clearing all the data
+
+
+  // for clearing all the data after click on clearAll
   let clearAllData = () => {
     setShow([]);
   }
@@ -69,6 +71,7 @@ function App() {
         <div className='input-wrapper'>
           <input type="text" className="form-control" value={task} onChange={(e) => setTask(e.target.value)} />
           {
+            // This button chanes conditionally for adding and updating
             updateBtn ? <button className="btn btn-secondary mx-2" onClick={addTask}>Add</button> :
               <button className="btn btn-success mx-2" onClick={addTask}>update</button>
           }
@@ -76,6 +79,7 @@ function App() {
         </div>
 
       </div>
+      {/* all taska are added here */}
       <div className="tasks-wrapper">
         <div>
           {
@@ -85,7 +89,9 @@ function App() {
                   <h4 className='tasks mt-2' >{e.name}</h4>
                 </div>
                 <div className='edit-delete'>
+                  {/* this is edit button */}
                   <i className="fa-solid fa-pen-to-square" onClick={() => editTask(e.id)} ></i>
+                  {/* this is task delete button */}
                   <i className="fa-solid fa-trash-can mx-2" title='delete' onClick={() => removeTask(e.id)}></i>
                 </div>
               </div>
@@ -93,7 +99,8 @@ function App() {
             ))
           }
           <div className='button-wrapper'>
-            <button className='btn btn-danger' onClick={clearAllData}>clear</button>
+            {/* for clearing all the data */}
+            <button className='btn btn-danger' onClick={clearAllData}>clearAll</button>
 
           </div>
         </div>
