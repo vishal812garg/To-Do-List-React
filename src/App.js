@@ -2,36 +2,36 @@ import './App.css';
 import { useState } from "react"
 
 function App() {
-  let [task, setTask] = useState("");//input value added by ueser
+  let [value, setValue] = useState("");//input value added by ueser
   let [show, setShow] = useState([]);//array created with all input task added
   let [updateBtn, setUpdateBtn] = useState(true);
-  const [isEdit, setIsEdit] = useState();
+  const [Edit, setIsEdit] = useState();
 
   // console.log(show)
 
   // For adding task in task-wrapper
   let addTask = () => {
 
-    if (task.length === 0) {
+    if (value.length === 0) {
       alert("enter some task")
-    } else if (task && !updateBtn) {
+    } else if (value && !updateBtn) {
       setShow(
         show.map((e) => {
-          if (e.id === isEdit) {
-            return { ...show, name: task }
+          if (e.id === Edit) {
+            return { ...show, name: value }
           }
           return e;
         })
       )
       setUpdateBtn(true);
-      setTask("")
+      setValue("")
       setIsEdit(null);
     }
     else {
-      const allInput = { id: new Date().getTime().toString(), name: task }
+      const allInput = { id: new Date().getTime().toString(), name: value }
       let added = [...show, allInput]
       setShow(added);
-      setTask("")
+      setValue("")
     }
 
 
@@ -54,7 +54,7 @@ function App() {
     })
     // console.log(newEditItem)
     setUpdateBtn(false);
-    setTask(newEditItem.name)
+    setValue(newEditItem.name)
     setIsEdit(id);
   }
 
@@ -69,7 +69,7 @@ function App() {
       <h1 className='heading'>To Do List</h1>
       <div className="top">
         <div className='input-wrapper'>
-          <input type="text" className="form-control" value={task} onChange={(e) => setTask(e.target.value)} />
+          <input type="text" className="form-control" value={value} onChange={(e) => setValue(e.target.value)} />
           {
             // This button chanes conditionally for adding and updating
             updateBtn ? <button className="btn btn-secondary mx-2" onClick={addTask}>Add</button> :
